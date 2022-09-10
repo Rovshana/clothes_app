@@ -1,5 +1,6 @@
 import React from 'react'
 import Announce from '../components/Announce'
+import Catagories from '../components/Catagories'
 import Navbar from '../components/Navbar'
 import Slider from '../components/Slider'
 
@@ -12,6 +13,7 @@ import Slider from '../components/Slider'
         <Announce/>
        <Navbar/>
        <Slider/>
+       <Catagories/>
     
         </>
     )
