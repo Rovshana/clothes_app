@@ -30,6 +30,7 @@ flex-direction: column;
 const Title = styled.h1`
 color: white;
 margin-bottom: 20px;
+font-weight: 600;
 `
 const Button = styled.button`
 border: none;
