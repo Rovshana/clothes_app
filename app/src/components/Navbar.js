@@ -63,7 +63,7 @@ function Navbar(props) {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>Dior</Logo>
+          <Logo>Moda.Me</Logo>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>

@@ -1,5 +1,8 @@
 import Product from "./Pages/Product";
 import ProductList from "./Pages/ProductList";
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
+import Card from "./Pages/Card";
 
 
 
@@ -7,7 +10,7 @@ import ProductList from "./Pages/ProductList";
 function App() {
   return (
     <div>
-   <Product/>
+   <Card/>
     </div>
   );
 }

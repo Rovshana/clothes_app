@@ -74,7 +74,7 @@ background-color: #${props => props.color}
     return (
         <Container>
             <Left>
-               <Logo>Dior.</Logo>
+               <Logo>Moda.Me</Logo>
                
 <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur gravida dui et vulputate. Sed eget odio vitae sem convallis eleifend. Fusce molestie facilisis lorem</Desc>
            <SocialContainer>
