@@ -43,7 +43,7 @@ transform: translateX(${props => props.slideIndex  * -100}vw)
 const Slide = styled.div`
 display: flex;
 align-items: center;
-width: 100vw;
+
 height: 100vh;
 
 `
@@ -105,7 +105,7 @@ height: 80%;
 
             </Arrow>
             <Wrapper slideIndex={slideIndex}>
-               <Slide>
+            <Slide>
                     <ImageContainer>
                         <Image src={shopping} />
                     </ImageContainer>
