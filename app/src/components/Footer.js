@@ -7,8 +7,10 @@ import AddLocationIcon from '@mui/icons-material/AddLocation';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
 import styled from 'styled-components'
+import {mobile} from '../responsive'
  const Container = styled.div`
  display: flex;
+ ${mobile({flexDirection: "column"})}
  `
  const Left= styled.div`
  flex: 1;
@@ -42,6 +44,7 @@ background-color: #${props => props.color}
  const Right = styled.div`
  flex: 1;
  padding: 20px;
+ ${mobile({background: "#fcf5f5"})}
  `
  const ContactItem = styled.div`
  margin-bottom: 20px;
@@ -51,6 +54,7 @@ background-color: #${props => props.color}
  const Center = styled.div`
  flex: 1;
  padding: 20px;
+ ${mobile({display: "none"})}
  `
  const Title = styled.h3`
  margin-bottom: 30px;

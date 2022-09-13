@@ -5,12 +5,13 @@ import shopping from  '../Images/shopping.png'
 import styled from 'styled-components'
 import { clothesApi } from '../api/Slider';
 import { useEffect } from 'react';
+import {mobile} from '../responsive'
 
 const Container = styled.div`
 height: 100vh;
 width: 100%;
 overflow: hidden;
-
+${mobile({display: "none"})}
 position: relative;
 `
 const Arrow = styled.div`

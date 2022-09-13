@@ -3,9 +3,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import styled from "styled-components";
+import Register from "../Pages/Register";
+import {mobile} from '../responsive'
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
+  ${mobile({height: "50px"})}
   
 `;
 const Wrapper = styled.div`
@@ -13,6 +17,7 @@ const Wrapper = styled.div`
   padding: 10px 29px;
   justify-content: space-between;
   align-items: center;
+  ${mobile({height: "50px"})}
 `;
 const Left = styled.div`
   flex: 1;
@@ -22,6 +27,7 @@ const Left = styled.div`
 const Language = styled.span`
   cursor: pointer;
   font-size: 14px;
+  ${mobile({display: "none"})}
 `;
 const SearchContainer = styled.div`
   border: 1px solid lightgrey;
@@ -32,6 +38,7 @@ const SearchContainer = styled.div`
 `;
 const Input = styled.input`
   border: none;
+  ${mobile({width: '50px'})}
 `;
 const Center = styled.div`
   flex: 1;
@@ -39,26 +46,37 @@ const Center = styled.div`
 `;
 const Logo = styled.h1`
   font-weight: bold;
+  ${mobile({fontSize: '24px'})}
 `;
 const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  ${mobile({flex: 2,justifyContent: 'center'})}
 `;
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  ${mobile({marginLeft: "10px"})}
+ 
 `;
 function Navbar(props) {
+  const navigate = useNavigate()
+  const navigateRegister = ()=>{
+    navigate('/register')
+  }
+  const navigateLogin = ()=>{
+    navigate('/login')
+  }
   return (
     <Container>
       <Wrapper>
         <Left>
           <Language>EN</Language>
           <SearchContainer>
-            <Input></Input>
+            <Input placeholder="Search" />
             <SearchIcon style={{color: "grey", fontSize: "16px"}} />
           </SearchContainer>
         </Left>
@@ -66,8 +84,8 @@ function Navbar(props) {
           <Logo>Moda.Me</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem onClick={navigateRegister}>REGISTER</MenuItem>
+          <MenuItem onClick={navigateLogin}>SIGN IN</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="secondary">
               < ShoppingCartOutlinedIcon />
