@@ -2,21 +2,26 @@
     {
         "id": 1,
         "title": "Modern Coats",
-        "photo": "https://flyingcdn-e81424e1.b-cdn.net/wp-content/uploads/2020/10/coats5.jpeg"
+        "photo": "https://flyingcdn-e81424e1.b-cdn.net/wp-content/uploads/2020/10/coats5.jpeg",
+        "catagory": "coats"
     },
     {
         "id": 2,
         "title": "Colorful OverSize Sweater",
-        "photo": "https://i.pinimg.com/originals/b5/7b/00/b57b00e8bd072de3670a59f3b8724886.jpg"
+        "photo": "https://i.pinimg.com/originals/b5/7b/00/b57b00e8bd072de3670a59f3b8724886.jpg",
+        "catagory": "women"
+
     },
     {
         "id": 3,
         "title": "Silk Blouse",
+        "catagory": "t-shirts",
         "photo": "https://n.nordstrommedia.com/id/sr3/6fa79269-cacc-4774-9968-100a18a96520.jpeg?h=365&w=240&dpr=2"
     },{
         "id": 4,
         "title": " Elegant Dresses",
-        "photo": "https://i.pinimg.com/236x/23/c1/43/23c143e21600f6ba0657482d6c79f0e0.jpg"
+        "photo": "https://i.pinimg.com/236x/23/c1/43/23c143e21600f6ba0657482d6c79f0e0.jpg",
+        "catagory": "Dresses"
     }
 
 ]

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import {Link} from 'react-router-dom'
 import {mobile} from '../responsive'
 const Container = styled.div`
 flex: 1;
@@ -46,11 +47,13 @@ color: gray;
 
     return (
         <Container>
+            <Link to={`/productlist/${item.catagory}`}>
             <Image src={item.photo}/>
             <Info>
                 <Title>{item.title}</Title>
                 <Button>Shop Now</Button>
             </Info>
+            </Link>
         </Container>
     )
 }
