@@ -14,7 +14,7 @@ import Login from './Login';
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<Product />} />
-        <Route path="/productlist" element={<ProductList />}/>
+        <Route path="/productlist/:catagory" element={<ProductList />}/>
         <Route path="/Register" element={<Register />}/>
         <Route path="/Login" element={user? <Navigate to ='/'/> : <Login/>}/>
         

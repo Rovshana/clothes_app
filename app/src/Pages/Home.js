@@ -6,10 +6,11 @@ import Navbar from '../components/Navbar'
 import NewsLetter from '../components/NewsLetter'
 import Products from '../components/Products'
 import Slider from '../components/Slider'
+import { AppTitle } from '../tools/generalFunc'
 
 
  function Home(props) {
-    
+    AppTitle('Moda.Me')
 
     return (
         <>

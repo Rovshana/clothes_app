@@ -11,8 +11,12 @@ justify-content: space-between;
 /* background-color: #f5fbfd; */
 
 `
- function Products(props) {
-    const [product, setProduct] =  useState(null)
+ function Products({catagory, filters, sort}) {
+    console.log(catagory, filters, sort)
+    const [product, setProduct] = useState(null)
+    const [products, setProducts] =  useState([])
+    const [filteredProducts, setFilteredProducts] =  useState([])
+
     useEffect(() => {
        getProduct() 
     }, [])

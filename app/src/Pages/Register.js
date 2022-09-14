@@ -1,23 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
 import {mobile} from '../responsive'
+import { AppTitle } from '../tools/generalFunc'
 const Container = styled.div`
 width: 100vw;
 height: 100vh;
 display: flex;
 justify-content: center;
 align-items: center;
+background: url('https://media.istockphoto.com/photos/young-woman-holding-shopping-bags-picture-id1243464982?b=1&k=20&m=1243464982&s=612x612&w=0&h=dpTbUZnacIknkH_D_h0WcyrG1DmstO22e9HAN4FZmic=');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 `
 const Wrapper = styled.div`
 padding: 20%;
 width: 40%;
-background-color: white;
+
+
 ${mobile({width: "75%"})}
 
 `
 const Title = styled.h1`
-font-size: 24px;
-font-weight: 400;
+font-size: 25px;
+font-weight: 500;
 
 
 `
@@ -45,7 +52,7 @@ background-color: teal;
 padding: 10px;
 `
  function Register(props) {
-    
+    AppTitle('Register/Moda.Me')
 
     return (
         <Container>

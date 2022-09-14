@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {mobile} from '../responsive'
+import { AppTitle } from '../tools/generalFunc'
 const Container = styled.div`
 width: 100vw;
 height: 100vh;
@@ -53,7 +54,7 @@ cursor: pointer;
 `
  function Login(props) {
     
-
+AppTitle('Login/Moda.Me')
     return (
         <Container>
             <Wrapper>

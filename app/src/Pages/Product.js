@@ -7,6 +7,7 @@ import NewsLetter from '../components/NewsLetter'
 import RemoveOutlined from '@mui/icons-material/RemoveOutlined'
 import AddOutlined from '@mui/icons-material/AddOutlined'
 import {mobile} from '../responsive'
+import { AppTitle } from '../tools/generalFunc'
 
 const Container = styled.div`
 `
@@ -104,7 +105,7 @@ font-weight: 500;
 
  function Product(props) {
     
-
+AppTitle('products/Moda.Me')
     return (
         <Container>
             <Navbar/>

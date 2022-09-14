@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import {mobile} from '../responsive'
+import { AppTitle } from '../tools/generalFunc'
 const Container = styled.div`
 `
 const Wrapper = styled.div`
@@ -145,7 +146,7 @@ width: 100%;
 `
 
  function Card(props) {
-    
+    AppTitle('cards/Moda.Me')
 
     return (
         <Container>
