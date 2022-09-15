@@ -8,6 +8,8 @@ import RemoveOutlined from '@mui/icons-material/RemoveOutlined'
 import AddOutlined from '@mui/icons-material/AddOutlined'
 import {mobile} from '../responsive'
 import { AppTitle } from '../tools/generalFunc'
+import { useNavigate } from 'react-router-dom'
+import Card from './Card'
 
 const Container = styled.div`
 `
@@ -104,8 +106,12 @@ font-weight: 500;
 `
 
  function Product(props) {
-    
-AppTitle('products/Moda.Me')
+    AppTitle('products/Moda.Me');
+    const navigate = useNavigate();
+    const handleNavigate = ()=>{
+        navigate('/Card')
+    }
+
     return (
         <Container>
             <Navbar/>
@@ -128,7 +134,7 @@ AppTitle('products/Moda.Me')
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
                             <FilterSize>
-                            <FilterSizeOption>XS</FilterSizeOption>
+                            <FilterSizeOption value="XS">XS</FilterSizeOption>
                             <FilterSizeOption>S</FilterSizeOption>
                             <FilterSizeOption>M</FilterSizeOption>
                             <FilterSizeOption>L</FilterSizeOption>
@@ -143,7 +149,7 @@ AppTitle('products/Moda.Me')
                             <Amount>1</Amount>
                             <AddOutlined/>
                         </AmountContainer>
-                        <Button>ADD TO CART</Button>
+                        <Button onClick={handleNavigate}>ADD TO CART</Button>
                     </AddContainer>
 
                 </InfoContainer>

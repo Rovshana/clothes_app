@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import styled from "styled-components";
 import Register from "../Pages/Register";
 import {mobile} from '../responsive'
+import {useTranslation} from 'react-i18next'
 import { useNavigate } from "react-router-dom";
+import i18n from  "../i18n";
+import { changeLanguage } from "i18next";
 
 const Container = styled.div`
   height: 60px;
@@ -24,11 +27,14 @@ const Left = styled.div`
   display: flex;
   align-items: center;
 `;
-const Language = styled.span`
+const Language = styled.select`
   cursor: pointer;
   font-size: 14px;
+  border: none;
   ${mobile({display: "none"})}
 `;
+const Option = styled.option`
+`
 const SearchContainer = styled.div`
   border: 1px solid lightgrey;
   display: flex;
@@ -61,8 +67,21 @@ const MenuItem = styled.div`
   margin-left: 25px;
   ${mobile({marginLeft: "10px"})}
  
-`;
+`
 function Navbar(props) {
+
+  const lngs = {
+    az: {NativeName: "Az"},
+    en: {NativeName: "En"},
+    gr: {NativeName: "Gr"},
+  }
+  // const handleClick = (e)=>{
+  //   const value = e.target.value;
+  //   console.log('val',value)
+   
+  //   i18n.changeLanguage(value)
+  // }
+  
   const navigate = useNavigate()
   const navigateRegister = ()=>{
     navigate('/register')
@@ -74,7 +93,27 @@ function Navbar(props) {
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
+        <Language name="language" 
+             onClick={(e)=>changeLanguage(e.target.value)} >
+         {
+          Object.keys(lngs).map((lng)=>(
+         
+            
+            <Option
+            value={lng}
+             
+            >{lngs[lng].NativeName}</Option>
+            
+          
+
+          ))
+         }</Language>
+         {/* <select>
+          <option>az</option>
+          <option>en</option>
+          <option>gr</option>
+         </select> */}
+         
           <SearchContainer>
             <Input placeholder="Search" />
             <SearchIcon style={{color: "grey", fontSize: "16px"}} />

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
-import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
+import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 import shopping from  '../Images/shopping.png'
 import styled from 'styled-components'
 import { clothesApi } from '../api/Slider';
 import { useEffect } from 'react';
 import {mobile} from '../responsive'
+import { useTranslation } from 'react-i18next';
 
 const Container = styled.div`
 height: 100vh;
@@ -98,7 +99,7 @@ height: 80%;
     }
 
    }
-
+   const { t, i18n } = useTranslation();
     return (
         <Container>
             <Arrow direction="left" onClick={()=>handleClick("left")}>
