@@ -3,6 +3,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 const Info = styled.div`
  width: 100%;
  height: 100%;
@@ -66,7 +67,8 @@ position: absolute;
  `
 
 function Product({item}) {
-    
+    console.log("item",item);
+  const navigate =  useNavigate()  
 
     return (
         <Container>
@@ -77,7 +79,7 @@ function Product({item}) {
             <ShoppingCartOutlinedIcon />
             </Icon>
             <Icon>
-            <SearchOutlinedIcon/>
+            <SearchOutlinedIcon onClick={()=>navigate('/product',{state:{photo:item.photo, id: item.id}})}/>
             </Icon>
             <Icon>
          <FavoriteBorderOutlinedIcon/>

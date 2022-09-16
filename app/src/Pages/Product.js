@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createRef, useEffect } from 'react'
 import styled from 'styled-components'
 import Announce from '../components/Announce'
 import Footer from '../components/Footer'
@@ -8,8 +8,12 @@ import RemoveOutlined from '@mui/icons-material/RemoveOutlined'
 import AddOutlined from '@mui/icons-material/AddOutlined'
 import {mobile} from '../responsive'
 import { AppTitle } from '../tools/generalFunc'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Card from './Card'
+import { useDispatch } from 'react-redux'
+import { addProducts } from '../store/Slices/CardSlice'
+import { addBasket } from '../store/Slices/CardSlice'
+
 
 const Container = styled.div`
 `
@@ -106,11 +110,24 @@ font-weight: 500;
 `
 
  function Product(props) {
-    AppTitle('products/Moda.Me');
-    const navigate = useNavigate();
-    const handleNavigate = ()=>{
-        navigate('/Card')
-    }
+    console.log(props,"test");
+    let location = useLocation()
+    console.log(location,"location");
+    const dispatch = useDispatch()
+AppTitle('products/Moda.Me');
+   
+// const ref = createRef()
+
+// useEffect(() => {
+//     ref.scrollTo(0, 0)
+// }, [])
+
+    
+
+        const handleClick = ()=>{
+            dispatch(addBasket())
+        }
+
 
     return (
         <Container>
@@ -118,7 +135,7 @@ font-weight: 500;
             <Announce/>
             <Wrapper>
                 <ImageConatiner>
-                    <Image src="https://sc04.alicdn.com/kf/H937986f548d445ed9006e95e25a1c906X.jpg"/>
+                    <Image src={location?.state?.photo}/>
                 </ImageConatiner>
                 <InfoContainer>
                     <Title>Denim JumpSuit</Title>
@@ -149,7 +166,7 @@ font-weight: 500;
                             <Amount>1</Amount>
                             <AddOutlined/>
                         </AmountContainer>
-                        <Button onClick={handleNavigate}>ADD TO CART</Button>
+                        <Button onClick={handleClick}>ADD TO CART</Button>
                     </AddContainer>
 
                 </InfoContainer>

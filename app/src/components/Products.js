@@ -19,7 +19,7 @@ justify-content: space-between;
 
     useEffect(() => {
        getProduct() 
-    }, [])
+    }, [catagory])
 
     const getProduct = ()=>{
         ProductApi.then(res=>{
@@ -32,7 +32,7 @@ justify-content: space-between;
         <Container>
             {
                product?.map((item, index)=>(
-                <Product item = {item}  />
+                <Product item = {item} key={item.id} />
                )) 
             }
             

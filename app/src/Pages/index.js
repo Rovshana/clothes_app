@@ -6,6 +6,7 @@ import Register from './Register';
 import Home from './Home';
 import Card from './Card';
 import Login from './Login';
+import ErrorPage from './404';
  function Pages(props) {
     const user = true;
 
@@ -19,6 +20,7 @@ import Login from './Login';
         <Route path="/Login" element={user? <Navigate to ='/'/> : <Login/>}/>
         
         <Route path="/Card" element={<Card />}/>
+        <Route path="/*" element={<ErrorPage />}/>
       </Routes>
 
             
