@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {mobile} from '../responsive'
 const Container = styled.div`
 flex: 1;
@@ -43,17 +43,17 @@ background-color: white;
 color: gray;
 `
  function CatagoryItem({item}) {
-    
+    const navigate = useNavigate()
 
     return (
         <Container>
-            <Link to={`/productlist/${item.catagory}`}>
+            
             <Image src={item.photo}/>
             <Info>
                 <Title>{item.title}</Title>
-                <Button>Shop Now</Button>
+                <Button onClick={()=> navigate('/productlist')}>Shop Now</Button>
             </Info>
-            </Link>
+        
         </Container>
     )
 }

@@ -17,7 +17,7 @@ import ErrorPage from './404';
         <Route path="/product" element={<Product />} />
         <Route path="/productlist" element={<ProductList />}/>
         <Route path="/Register" element={<Register />}/>
-        <Route path="/Login" element={user? <Navigate to ='/'/> : <Login/>}/>
+        <Route path="/Login" element ={<Login/>}/>
         
         <Route path="/Card" element={<Card />}/>
         <Route path="/*" element={<ErrorPage />}/>

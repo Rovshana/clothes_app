@@ -10,9 +10,10 @@ import {mobile} from '../responsive'
 import { AppTitle } from '../tools/generalFunc'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Card from './Card'
-import { useDispatch } from 'react-redux'
-import { addProducts } from '../store/Slices/CardSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCard, addProduct, addProducts, decreaseProduct } from '../store/Slices/CardSlice'
 import { addBasket } from '../store/Slices/CardSlice'
+import { TextSnippetTwoTone } from '@mui/icons-material'
 
 
 const Container = styled.div`
@@ -110,23 +111,34 @@ font-weight: 500;
 `
 
  function Product(props) {
-    console.log(props,"test");
+    const count = useSelector(state=>state.cart.count)
+    
+    // console.log(props,"test");
     let location = useLocation()
     console.log(location,"location");
     const dispatch = useDispatch()
 AppTitle('products/Moda.Me');
    
-// const ref = createRef()
 
-// useEffect(() => {
-//     ref.scrollTo(0, 0)
-// }, [])
 
-    
+    const handleAddAmount = ()=>{
+        dispatch(addProduct())
+    }
+    const handleDecreaseAmount = ()=>{
+        dispatch(decreaseProduct())
+    }
 
-        const handleClick = ()=>{
+        const handleClick = (test)=>{
+            dispatch(addCard(test))
             dispatch(addBasket())
         }
+
+        useEffect(()=>{
+            window.scrollTo({
+                top:10,
+                behavior: 'smooth'
+            })
+        })
 
 
     return (
@@ -138,9 +150,9 @@ AppTitle('products/Moda.Me');
                     <Image src={location?.state?.photo}/>
                 </ImageConatiner>
                 <InfoContainer>
-                    <Title>Denim JumpSuit</Title>
+                    <Title>{location?.state?.brand}</Title>
                     <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique tortor at tellus accumsan, eget euismod sem feugiat. Vestibulum at ultricies tortor, ut gravida turpis. Donec luctus massa rutrum, consequat nulla ac, sollicitudin neque. Duis non eros hendrerit, dignissim nisl ut, semper nisl. </Desc>
-                    <Price>$70</Price>
+                    <Price>${location?.state?.price}</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
@@ -162,11 +174,11 @@ AppTitle('products/Moda.Me');
                     </FilterContainer>
                     <AddContainer>
                         <AmountContainer>
-                            <RemoveOutlined/>
-                            <Amount>1</Amount>
-                            <AddOutlined/>
+                            <RemoveOutlined onClick={handleDecreaseAmount}/>
+                            <Amount>{count}</Amount>
+                            <AddOutlined onClick={handleAddAmount}/>
                         </AmountContainer>
-                        <Button onClick={handleClick}>ADD TO CART</Button>
+                        <Button onClick={()=>handleClick(location.state)}>ADD TO CART</Button>
                     </AddContainer>
 
                 </InfoContainer>

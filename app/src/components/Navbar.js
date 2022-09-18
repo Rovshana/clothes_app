@@ -5,9 +5,8 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import styled from "styled-components";
 import Register from "../Pages/Register";
 import {mobile} from '../responsive'
-import {useTranslation} from 'react-i18next'
 import { useNavigate } from "react-router-dom";
-import i18n from  "../i18n";
+
 import { changeLanguage } from "i18next";
 import {useSelector} from 'react-redux'
 
@@ -53,6 +52,7 @@ const Center = styled.div`
 `;
 const Logo = styled.h1`
   font-weight: bold;
+  cursor: pointer;
   ${mobile({fontSize: '24px'})}
 `;
 const Right = styled.div`
@@ -110,11 +110,6 @@ console.log(quantity)
 
           ))
          }</Language>
-         {/* <select>
-          <option>az</option>
-          <option>en</option>
-          <option>gr</option>
-         </select> */}
          
           <SearchContainer>
             <Input placeholder="Search" />
@@ -122,13 +117,13 @@ console.log(quantity)
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>Moda.Me</Logo>
+          <Logo onClick={()=>navigate('/')}>Moda.Me</Logo>
         </Center>
         <Right>
           <MenuItem onClick={navigateRegister}>REGISTER</MenuItem>
           <MenuItem onClick={navigateLogin}>SIGN IN</MenuItem>
           <MenuItem>
-            <Badge badgeContent={quantity} color="secondary">
+            <Badge badgeContent={quantity} color="secondary" onClick={()=>navigate('/card')}>
               < ShoppingCartOutlinedIcon />
             </Badge>
           </MenuItem>

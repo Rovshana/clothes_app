@@ -79,7 +79,7 @@ function Product({item}) {
             <ShoppingCartOutlinedIcon />
             </Icon>
             <Icon>
-            <SearchOutlinedIcon onClick={()=>navigate('/product',{state:{photo:item.photo, id: item.id}})}/>
+            <SearchOutlinedIcon onClick={()=>navigate('/product',{state:{ ...item}})}/>
             </Icon>
             <Icon>
          <FavoriteBorderOutlinedIcon/>

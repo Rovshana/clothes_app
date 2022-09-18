@@ -14,8 +14,7 @@ justify-content: space-between;
  function Products({catagory, filters, sort}) {
     console.log(catagory, filters, sort)
     const [product, setProduct] = useState(null)
-    const [products, setProducts] =  useState([])
-    const [filteredProducts, setFilteredProducts] =  useState([])
+   
 
     useEffect(() => {
        getProduct() 
