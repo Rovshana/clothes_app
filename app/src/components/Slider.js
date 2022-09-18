@@ -5,7 +5,7 @@ import shopping from  '../Images/shopping.png'
 import styled from 'styled-components'
 import { clothesApi } from '../api/Slider';
 import { useEffect } from 'react';
-import {mobile} from '../responsive'
+import {mobile, tablet} from '../responsive'
 import { useTranslation } from 'react-i18next';
 
 const Container = styled.div`
@@ -13,6 +13,7 @@ height: 100vh;
 width: 100%;
 overflow: hidden;
 ${mobile({display: "none"})}
+${tablet({display: "none"})}
 position: relative;
 `
 const Arrow = styled.div`
@@ -79,6 +80,8 @@ const Image = styled.img`
 height: 80%;
 `
  function Slider(props) {
+
+
     const [data, setData] = useState(null)
     useEffect(() => {
     getClothes()
@@ -126,7 +129,7 @@ height: 80%;
                     <InfoContaier>
                         <Title>{item.title}</Title>
                         <Des>{item.description}</Des>
-                        <Button>Show Now</Button>
+                        <Button >Show Now</Button>
                     </InfoContaier>
                     </Slide>
 

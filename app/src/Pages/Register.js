@@ -5,8 +5,8 @@ import { AppTitle } from '../tools/generalFunc'
 import { Formik } from 'formik';
 import { useFormik } from 'formik';
 const Container = styled.div`
-width: 100vw;
-height: 100vh;
+width: 100%;
+height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -56,7 +56,7 @@ padding: 10px;
 const Span = styled.span`
 display: block;
 
-min-width: 40%;
+width: 40%;
 padding: 10px;
 margin: 20px 10px 0px 0px;
 `
@@ -79,10 +79,10 @@ margin: 20px 10px 0px 0px;
         validate: (values)=>{
             let errors = {}
             if (!values.name) {
-              errors.name = "Required!";
+              errors.name = " name is Required!";
             }
             if (!values.email) {
-              errors.email = "Required!";
+              errors.email = "email is Required!";
             } else if (
               !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(
                 values.email
@@ -91,7 +91,10 @@ margin: 20px 10px 0px 0px;
               errors.email = "Please enter a valid email!";
             }
             if(!values.userName){
-              errors.userName = 'Required!'
+              errors.userName = ' user name is required !'
+            }
+            if(!values.password){
+              errors.password = ' password Required!'
             }
             console.log(errors)
             return errors
@@ -133,6 +136,9 @@ margin: 20px 10px 0px 0px;
          value={formik.values.email}
          placeholder='email'
        />
+       {formik.errors.email && (
+          <Span className="error">{formik.errors.email}</Span>
+        )}
        <Input
          id="userName"
          name="userName"
@@ -141,6 +147,9 @@ margin: 20px 10px 0px 0px;
          value={formik.values.userName}
          placeholder='user name'
        />
+        {formik.errors.userName && (
+          <Span className="error">{formik.errors.userName}</Span>
+        )}
        <Input
          id="password"
          name="password"

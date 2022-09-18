@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import {Link, useNavigate} from 'react-router-dom'
-import {mobile} from '../responsive'
+import {mobile, tablet} from '../responsive'
 const Container = styled.div`
 flex: 1;
 margin: 3px;
@@ -16,6 +16,7 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 ${mobile({height: '30%'})}
+${tablet({height: '30%'})}
 
 `
 

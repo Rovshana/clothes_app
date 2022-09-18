@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from 'react'
+import React, { createRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Announce from '../components/Announce'
 import Footer from '../components/Footer'
@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 import NewsLetter from '../components/NewsLetter'
 import RemoveOutlined from '@mui/icons-material/RemoveOutlined'
 import AddOutlined from '@mui/icons-material/AddOutlined'
-import {mobile} from '../responsive'
+import {mobile, tablet} from '../responsive'
 import { AppTitle } from '../tools/generalFunc'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Card from './Card'
@@ -22,6 +22,7 @@ const Wrapper = styled.div`
 padding: 50px;
 display: flex;
 ${mobile({flexDirection: "column", padding: "10px"})}
+${tablet({flexDirection: "column", padding: "10px"})}
 `
 const ImageConatiner = styled.div`
 Flex: 1;
@@ -31,11 +32,13 @@ width: 100%;
 height: 90vh;
 object-fit: cover;
 ${mobile({height: "40vh"})}
+${tablet({height: "40vh"})}
 `
 const InfoContainer = styled.div`
 flex: 1;
 padding: 0px 50px;
 ${mobile({padding: "10px"})}
+${tablet({padding: "10px"})}
 `
 const Title = styled.h1`
 font-weight: 200;
@@ -54,13 +57,22 @@ margin: 30px 0px;
 display: flex;
 justify-content: space-between;
 ${mobile({width: "100%"})}
+${tablet({width: "100%"})}
 
 `
 const Filter = styled.div`
 display: flex;
 align-items: center;
 `
-const FilterColor = styled.div`
+const FilterColorSelect = styled.select`
+margin-right: 10px;
+margin-left: 5px;
+
+padding: 10px;
+border-radius: 50%;
+
+`
+const FilterColor = styled.option`
 height: 20px;
 width: 20px;
 border-radius: 50%;
@@ -83,6 +95,7 @@ align-items: center;
 width: 50%;
 justify-content: space-between;
 ${mobile({width: "100%"})}
+${tablet({width: "100%"})}
 `
 const AmountContainer = styled.div`
 display: flex;
@@ -111,6 +124,8 @@ font-weight: 500;
 `
 
  function Product(props) {
+    const [size,setSize] = useState('XS')
+    const [color,setColor] = useState('null')
     const count = useSelector(state=>state.cart.count)
     
     // console.log(props,"test");
@@ -129,7 +144,9 @@ AppTitle('products/Moda.Me');
     }
 
         const handleClick = (test)=>{
-            dispatch(addCard(test))
+            let product = {...test, size,color}
+            console.log(product);
+            dispatch(addCard(product))
             dispatch(addBasket())
         }
 
@@ -156,18 +173,21 @@ AppTitle('products/Moda.Me');
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
-                            <FilterColor  color="black"/>
-                            <FilterColor  color="blue"/>
-                            <FilterColor  color="gray"/>
+                            <FilterColorSelect onClick={(e)=>setColor(e.target.value)}>
+                            <FilterColor  color="black" value="black"  />
+                            <FilterColor  color="blue" value="blue"/>
+                            <FilterColor  color="gray" value="gray"/>
+                            <FilterColor  color="green" value="green"/>
+                            </FilterColorSelect>
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
-                            <FilterSize>
+                            <FilterSize onClick={(e)=>setSize(e.target.value)}>
                             <FilterSizeOption value="XS">XS</FilterSizeOption>
-                            <FilterSizeOption>S</FilterSizeOption>
-                            <FilterSizeOption>M</FilterSizeOption>
-                            <FilterSizeOption>L</FilterSizeOption>
-                            <FilterSizeOption>XL</FilterSizeOption>
+                            <FilterSizeOption value="S">S</FilterSizeOption>
+                            <FilterSizeOption value="M">M</FilterSizeOption>
+                            <FilterSizeOption value="L">L</FilterSizeOption>
+                            <FilterSizeOption value="XL">XL</FilterSizeOption>
                             </FilterSize>
                         </Filter>
 

@@ -136,10 +136,12 @@ const Button = styled.button`
 function Card(props) {
   const selector = useSelector((state) => state.cart.card);
   const navigate = useNavigate();
-  let total = 0;
-  selector.forEach(item=>{
-    total += item.price
-  })
+  // let total = 0;
+  // selector.forEach(item=>{
+  //   total += item.price
+  // })
+  let total = selector.reduce((sum,num)=>sum+num.price,0)
+  total = total - 5.90
 
   useEffect(() => {
     console.log(selector, "selector");
@@ -174,9 +176,13 @@ function Card(props) {
                     <ProductId>
                       <b>ID: </b>{product.id}
                     </ProductId>
-                    <ProductColor color="red" />
+                    {/* <ProductColor color="red" /> */}
+
                     <ProductSize>
-                      <b>Size:</b> 37
+                      <b>Size:</b> {product.size}
+                    </ProductSize>
+                    <ProductSize>
+                      <b>Color:</b> {product.color}
                     </ProductSize>
                   </Details>
                 </ProductDetail>

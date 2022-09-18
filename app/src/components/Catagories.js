@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { catagoryApi } from '../api/Catagory'
-import {mobile} from '../responsive'
+import {mobile, tablet} from '../responsive'
 
 import styled from "styled-components";
 import CatagoryItem from './CatagoryItem';
@@ -9,6 +9,7 @@ display: flex;
 padding: 20px;
 justify-content: space-between;
 ${mobile({padding: "0px", flexDirection: 'column'})}
+${tablet({padding: "0px", flexDirection: 'column'})}
 
 `
  function Catagories(props) {
