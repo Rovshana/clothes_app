@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik';
+import { Button,Form, Container, Input, Label, Title, Wrapper, Agreement } from '../styledComponent/Register.styled';
 
 function Register(props) {
   const formik = useFormik({
@@ -43,67 +44,83 @@ function Register(props) {
   });
 
   return (
-    <>
-     <form onSubmit={formik.handleSubmit}>
-       <label htmlFor="name"> Name</label>
-       <input
+  
+     
+      <Container>
+      <Wrapper>
+        <Title>CREATE AN ACCOUNT</Title>
+        <Form onSubmit={formik.handleSubmit}>
+       <Input
          id="name"
          name="name"
          type="text"
          onChange={formik.handleChange}
          value={formik.values.name}
+         placeholder="name"
        />
-       {formik.errors.name && <div className="error">{formik.errors.name}       </div>}
-       <label htmlFor="lastName">Last Name</label>
-       <input
+       {formik.errors.name && <p className="error">{formik.errors.name}       </p>}
+       
+       <Input
          id="lastName"
          name="lastName"
          type="text"
          onChange={formik.handleChange}
          value={formik.values.lastName}
+         placeholder="lastName"
        />
         {formik.errors.lastName && <div className="error">{formik.errors.lastName}       </div>}
-       <label htmlFor="email">Email Address</label>
-       <input
+       
+       <Input
          id="email"
          name="email"
          type="email"
          onChange={formik.handleChange}
          value={formik.values.email}
+         placeholder="email"
        />
         {formik.errors.name && <div className="error">{formik.errors.email}       </div>}
-        <label htmlFor="userName">User Name</label>
-        <input
+    
+        <Input
          id="userName"
          name="userName"
          type="text"
          onChange={formik.handleChange}
          value={formik.values.userName}
+         placeholder="user name"
        />
        
         {formik.errors.userName && <div className="error">{formik.errors.userName}       </div>}
-        <label htmlFor="password">Password</label>
-        <input
+      
+        <Input
          id="password"
          name="password"
          type="password"
          onChange={formik.handleChange}
          value={formik.values.password}
+         placeholder = "password"
        />
         {formik.errors.password && <div className="error">{formik.errors.password}       </div>}
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <input
+        
+        <Input
          id="confirmPassword"
          name="confirmPassword"
          type="text"
          onChange={formik.handleChange}
          value={formik.values.confirmPassword}
+         placeholder = "confirm password"
        />
         {formik.errors.userName && <div className="error">{formik.errors.confirmPassword}       </div>}
-       <button type="submit">Submit</button>
-     </form>
+
+<Agreement>by creating an account, I consent to the processing of my personal data in accordance
+  with the <b> Privarcy Policy</b> </Agreement>
+        <Button type="submit">Create</Button>
+       
+       </Form>
+       </Wrapper>
+       </Container>
+     
       
-    </>
+  
   )
 }
 
