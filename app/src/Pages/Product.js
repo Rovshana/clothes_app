@@ -64,21 +64,22 @@ const Filter = styled.div`
 display: flex;
 align-items: center;
 `
-const FilterColorSelect = styled.select`
-margin-right: 10px;
-margin-left: 5px;
 
-padding: 10px;
-border-radius: 50%;
-
-`
-const FilterColor = styled.option`
+const FilterColor = styled.button`
 height: 20px;
 width: 20px;
 border-radius: 50%;
 background-color: ${props => props.color};
 cursor: pointer;
+border: none;
 margin: 0px 5px;
+&:hover {
+    background-color: lightgray;
+}
+&:after{
+    border: 1px solid black;
+
+}
 `
 const FilterSize = styled.select`
 margin-left: 10px;
@@ -125,7 +126,7 @@ font-weight: 500;
 
  function Product(props) {
     const [size,setSize] = useState('XS')
-    const [color,setColor] = useState('null')
+    const [color,setColor] = useState('white')
     const count = useSelector(state=>state.cart.count)
     
     // console.log(props,"test");
@@ -144,6 +145,7 @@ AppTitle('products/Moda.Me');
     }
 
         const handleClick = (test)=>{
+            console.log(color);
             let product = {...test, size,color}
             console.log(product);
             dispatch(addCard(product))
@@ -156,7 +158,6 @@ AppTitle('products/Moda.Me');
                 behavior: 'smooth'
             })
         })
-
 
     return (
         <Container>
@@ -171,14 +172,11 @@ AppTitle('products/Moda.Me');
                     <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique tortor at tellus accumsan, eget euismod sem feugiat. Vestibulum at ultricies tortor, ut gravida turpis. Donec luctus massa rutrum, consequat nulla ac, sollicitudin neque. Duis non eros hendrerit, dignissim nisl ut, semper nisl. </Desc>
                     <Price>${location?.state?.price}</Price>
                     <FilterContainer>
-                        <Filter>
+                        <Filter onClick={e=>setColor(e.target.value)}>
                             <FilterTitle>Color</FilterTitle>
-                            <FilterColorSelect onClick={(e)=>setColor(e.target.value)}>
-                            <FilterColor  color="black" value="black"  />
-                            <FilterColor  color="blue" value="blue"/>
-                            <FilterColor  color="gray" value="gray"/>
-                            <FilterColor  color="green" value="green"/>
-                            </FilterColorSelect>
+                           {location.state.color?.map(item=>(
+                               <FilterColor  color={item} value={item}  />
+                           ))}
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>

@@ -77,6 +77,7 @@ const ProductColor = styled.div`
   height: 20px;
   border-radius: 50%;
   background-color: ${(props) => props.color};
+  margin-left: 5px;
 `;
 const ProductSize = styled.span``;
 const PriceDetails = styled.div`
@@ -133,6 +134,9 @@ const Button = styled.button`
   width: 100%;
 `;
 
+const Div = styled.div`
+  display: flex;
+`;
 function Card(props) {
   const selector = useSelector((state) => state.cart.card);
   const navigate = useNavigate();
@@ -140,8 +144,8 @@ function Card(props) {
   // selector.forEach(item=>{
   //   total += item.price
   // })
-  let total = selector.reduce((sum,num)=>sum+num.price,0)
-  total = total - 5.90
+  let total = selector.reduce((sum, num) => sum + num.price, 0);
+  total = total - 5.9;
 
   useEffect(() => {
     console.log(selector, "selector");
@@ -155,7 +159,9 @@ function Card(props) {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton onClick={()=>navigate('/productlist')}>Continue Shopping</TopButton>
+          <TopButton onClick={() => navigate("/productlist")}>
+            Continue Shopping
+          </TopButton>
 
           <TopTexts>
             <TopText>Shopping Bag({selector.length})</TopText>
@@ -174,31 +180,34 @@ function Card(props) {
                       <b>Product:</b> {product.brand}
                     </ProductName>
                     <ProductId>
-                      <b>ID: </b>{product.id}
+                      <b>ID: </b>
+                      {product.id}
                     </ProductId>
-                    {/* <ProductColor color="red" /> */}
-
+                    <Div>
+                      <b>Color: </b>
+                      <ProductColor color={product.color} />
+                    </Div>
                     <ProductSize>
                       <b>Size:</b> {product.size}
                     </ProductSize>
-                    <ProductSize>
+                    {/* <ProductColor>
                       <b>Color:</b> {product.color}
-                    </ProductSize>
+                    </ProductColor> */}
                   </Details>
                 </ProductDetail>
 
                 <PriceDetails>
                   <ProductAmmountConatiner>
-                    <AddIcon />
-                    <ProductAmount>2</ProductAmount>
                     <RemoveIcon />
+                    <ProductAmount>2</ProductAmount>
+
+                    <AddIcon />
                   </ProductAmmountConatiner>
                   <ProductPrice>${product.price}</ProductPrice>
                 </PriceDetails>
                 <HR />
               </Product>
             ))}
-            
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>

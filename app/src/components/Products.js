@@ -1,16 +1,9 @@
 import {useEffect, useState} from 'react'
-import styled from 'styled-components'
+import { Container } from '../styledComponent/Products.styled'
 import { ProductApi } from '../api/Product'
 import Product from './Product'
-const Container = styled.div`
-padding: 20px;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
 
-/* background-color: #f5fbfd; */
 
-`
  function Products({catagory, filters, sort}) {
     console.log(catagory, filters, sort)
     const [product, setProduct] = useState(null)

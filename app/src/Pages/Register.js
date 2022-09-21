@@ -1,178 +1,110 @@
 import React from 'react'
-import styled from 'styled-components'
-import {mobile} from '../responsive'
-import { AppTitle } from '../tools/generalFunc'
-import { Formik } from 'formik';
 import { useFormik } from 'formik';
-const Container = styled.div`
-width: 100%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-background: url('https://media.istockphoto.com/photos/young-woman-holding-shopping-bags-picture-id1243464982?b=1&k=20&m=1243464982&s=612x612&w=0&h=dpTbUZnacIknkH_D_h0WcyrG1DmstO22e9HAN4FZmic=');
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-`
-const Wrapper = styled.div`
-padding: 20%;
-width: 40%;
-
-
-${mobile({width: "75%"})}
-
-`
-const Title = styled.h1`
-font-size: 25px;
-font-weight: 500;
-
-
-`
-
-const Form = styled.form`
-display: flex;
-flex-wrap: wrap;
-`
-const Input = styled.input`
-
-width: 250px;
-padding: 10px;
-margin: 20px 10px 0px 0px;
-`
-const Agreement = styled.p`
-font-size: 12px;
-margin: 20px 0px;
-`
-const Button = styled.button`
-width: 40%;
-border: none;
-color: white;
-cursor: pointer;
-background-color: teal;
-padding: 10px;
-`
-const Span = styled.span`
-display: block;
-
-width: 40%;
-padding: 10px;
-margin: 20px 10px 0px 0px;
-`
- function Register(props) {
-    AppTitle('Register/Moda.Me')
-    const formik = useFormik({
-        initialValues: {
-          name: '',
-          lastName: '',
-          email: '',
-          userName: '',
-          password: '',
-          confirmPassword: ''
-        },
-        onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
-        },
+function Register(props) {
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      lastName: '',
+      email: '',
+      userName: '',
+      password: '',
+      confirmPassword: ''
+    },
+   
+    onSubmit: values => {
+      // alert(JSON.stringify(values, null, 2));
+      console.log('data', values)
       
-        // validation
-        validate: (values)=>{
-            let errors = {}
-            if (!values.name) {
-              errors.name = " name is Required!";
-            }
-            if (!values.email) {
-              errors.email = "email is Required!";
-            } else if (
-              !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(
-                values.email
-              )
-            ) {
-              errors.email = "Please enter a valid email!";
-            }
-            if(!values.userName){
-              errors.userName = ' user name is required !'
-            }
-            if(!values.password){
-              errors.password = ' password Required!'
-            }
-            console.log(errors)
-            return errors
-          }
-    })
+    },
+    validate:values=>{
+      let errors = {};
+      if(!values.name){
+       errors.name = 'Required!'
+      } 
+      if(!values.lastName){
+       errors.lastName = 'Required!'
+      } 
+     if(!values.email){
+       errors.email= 'Required!'
+      }else if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(values.email)){
+     errors.email = 'Invalid email format!'
+     }
+     if(!values.userName){
+      errors.userName = 'Required!'
+     } if(!values.password){
+      errors.password = "required"
+     }
+      if(!values.confirmPassword){
+      errors.confirmPassword = "required"
+     }
+      return errors;
+     }
+  });
 
-    return (
-        <Container>
-            <Wrapper>
-                <Title>CREATE AN ACCOUNT</Title>
-                <Form onSubmit={formik.handleSubmit}>
-      
-       <Input
+  return (
+    <>
+     <form onSubmit={formik.handleSubmit}>
+       <label htmlFor="name"> Name</label>
+       <input
          id="name"
          name="name"
          type="text"
          onChange={formik.handleChange}
          value={formik.values.name}
-         placeholder = "name "
        />
-       <Input
+       {formik.errors.name && <div className="error">{formik.errors.name}       </div>}
+       <label htmlFor="lastName">Last Name</label>
+       <input
          id="lastName"
          name="lastName"
          type="text"
          onChange={formik.handleChange}
          value={formik.values.lastName}
-         placeholder="last name"
        />
-      {formik.errors.name && (
-          <Span className="error">{formik.errors.name}</Span>
-        )}
-        
-
-       <Input
+        {formik.errors.lastName && <div className="error">{formik.errors.lastName}       </div>}
+       <label htmlFor="email">Email Address</label>
+       <input
          id="email"
          name="email"
          type="email"
          onChange={formik.handleChange}
          value={formik.values.email}
-         placeholder='email'
        />
-       {formik.errors.email && (
-          <Span className="error">{formik.errors.email}</Span>
-        )}
-       <Input
+        {formik.errors.name && <div className="error">{formik.errors.email}       </div>}
+        <label htmlFor="userName">User Name</label>
+        <input
          id="userName"
          name="userName"
          type="text"
          onChange={formik.handleChange}
          value={formik.values.userName}
-         placeholder='user name'
        />
-        {formik.errors.userName && (
-          <Span className="error">{formik.errors.userName}</Span>
-        )}
-       <Input
+       
+        {formik.errors.userName && <div className="error">{formik.errors.userName}       </div>}
+        <label htmlFor="password">Password</label>
+        <input
          id="password"
          name="password"
          type="password"
          onChange={formik.handleChange}
          value={formik.values.password}
-         placeholder ='password'
        />
-       <Input
+        {formik.errors.password && <div className="error">{formik.errors.password}       </div>}
+        <label htmlFor="confirmPassword">Confirm Password</label>
+        <input
          id="confirmPassword"
          name="confirmPassword"
-         type="confirmPassword"
+         type="text"
          onChange={formik.handleChange}
          value={formik.values.confirmPassword}
-         placeholder = 'confirm password'
        />
-       
-     </Form>
-                <Agreement>by creating an account, I consent to the processing of personal datain accordance with the <b>Privacy Policy</b></Agreement>
-            <Button>Create</Button>
-            </Wrapper>
-            
-        </Container>
-    )
+        {formik.errors.userName && <div className="error">{formik.errors.confirmPassword}       </div>}
+       <button type="submit">Submit</button>
+     </form>
+      
+    </>
+  )
 }
-export  default Register 
+
+export default Register

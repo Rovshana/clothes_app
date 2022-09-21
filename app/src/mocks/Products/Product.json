@@ -1,52 +1,60 @@
 [{
         "brand": "Gucci Bag",
-    "price": 120,
+        "price": 120,
         "id": 780023,
-        "photo": "https://media.dior.com/img/en_us/sku/couture/M0538ONHB_M030_TU"
+        "photo": "https://media.dior.com/img/en_us/sku/couture/M0538ONHB_M030_TU",
+        "color": ["blue", "green", "black", "red", "orange"]
     },
     {
+        "color": ["blue", "green", "black", "red", "orange"],
         "price": 60,
         "brand": "Koton t-shirt",
         "id": 20786,
         "photo": "https://sc01.alicdn.com/kf/HTB1l7VIeMb.PuJjSZFpq6zuFpXa2.jpg"
     },
     {
+        "color": ["blue", "green", "black", "red", "orange"],
         "price": 75,
         "brand": "Denim Jeans",
         "id": 3234567,
         "photo": "https://media.glamour.com/photos/5ff8e467ee9e12e0b017e94c/1:1/w_2560%2Cc_limit/Screen%2520Shot%25202021-01-08%2520at%25206.01.21%2520PM.png"
     },
     {
+       "color": ["blue", "green", "black", "red", "orange"],
         "price": 100,
         "brand": "Zara Dress",
         "id": 41394834,
         "photo": "https://cdn.shopify.com/s/files/1/0740/5151/products/Women_Beige_Blazer_Suit_Skirt_Set_19_800x.jpg?v=1651831158"
     },
-    {
+    {"color": ["blue", "green", "black", "red", "orange"],
         "price": 67,
         "brand": "Flo cozy-boot",
         "id": 5082938,
         "photo": "https://specials-images.forbesimg.com/imageserve/61c0ab9c33a68fb73416cb00/Best-Snow-Boots/960x0.jpg?cropX1=0&cropX2=768&cropY1=133&cropY2=806"
     },
     {
+        "color": ["blue", "green", "black", "red", "orange"],
         "price": 50,
         "brand": "Lc-waiki skirt",
         "id": 664556,
         "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUNs5i1se2Ik3_g4TUg1skQOnjQkCnIZp8dBN_Bxa4b3wVTrSzzORE-3n6hpWAcerbtVs&usqp=CAU"
     },
     {
+        "color": ["blue", "green", "black", "red", "orange"],
         "price": 98,
         "brand": "Channel Elegant Dress",
         "id": 773830,
         "photo": "https://i.pinimg.com/originals/dc/6b/54/dc6b5447b0bacf12109d089facc4f508.jpg"
     },
     {
+        "color": ["blue", "green", "black", "red", "orange"],
         "price": 77,
         "brand": "Koton Dress",
         "id": 839393,
         "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN9mvQmO6E5hQxw4oK_96CtbZb6rWyg3tWlFVefaN_HOX4WVSA2MMCVqZS5kIqIlMxOd8&usqp=CAU"
     },
     {
+        "color": ["blue", "green", "pink", "red", "orange"],
         "price": 59,
         "brand": "New-yorker Windbreaker",
         "id": 709229202,
