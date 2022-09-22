@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Announce from "../components/Announce";
 import Footer from "../components/Footer";
@@ -139,12 +139,14 @@ const Div = styled.div`
 `;
 function Card(props) {
   const selector = useSelector((state) => state.cart.card);
+  const [count, setCount] = useState('')
   const navigate = useNavigate();
-  // let total = 0;
-  // selector.forEach(item=>{
-  //   total += item.price
-  // })
-  let total = selector.reduce((sum, num) => sum + num.price, 0);
+  let total = 0;
+  selector.forEach(item=>{
+    total += item.price * item.quantity
+  })
+
+  // let total = selector.reduce((sum, num) => sum + num.price, 0);
   total = total - 5.9;
 
   useEffect(() => {
@@ -183,6 +185,10 @@ function Card(props) {
                       <b>ID: </b>
                       {product.id}
                     </ProductId>
+                    <ProductId>
+                      <b>Quantity:  </b>
+                      {product.quantity}
+                    </ProductId>
                     <Div>
                       <b>Color: </b>
                       <ProductColor color={product.color} />
@@ -198,12 +204,12 @@ function Card(props) {
 
                 <PriceDetails>
                   <ProductAmmountConatiner>
-                    <RemoveIcon />
-                    <ProductAmount>2</ProductAmount>
+              
+                    <ProductAmount>Quantity: {product.quantity}</ProductAmount>
 
-                    <AddIcon />
+          
                   </ProductAmmountConatiner>
-                  <ProductPrice>${product.price}</ProductPrice>
+                  <ProductPrice>Price: ${product.price}</ProductPrice>
                 </PriceDetails>
                 <HR />
               </Product>

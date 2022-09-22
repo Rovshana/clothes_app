@@ -38,7 +38,7 @@ import { Arrow, Button, Container, Des, Image, ImageContainer, InfoContaier, Sli
 
             </Arrow>
             <Wrapper slideIndex={slideIndex}>
-            <Slide>
+            {/* <Slide>
                     <ImageContainer>
                         <Image src={shopping} />
                     </ImageContainer>
@@ -47,7 +47,7 @@ import { Arrow, Button, Container, Des, Image, ImageContainer, InfoContaier, Sli
                         <Des>DON'T MISS THE SUMMER SALE!</Des>
                         <Button>Shop Now</Button>
                     </InfoContaier>
-                    </Slide>
+                    </Slide> */}
                     {
                         data?.map((item, index)=>(
                             <Slide>
@@ -56,7 +56,7 @@ import { Arrow, Button, Container, Des, Image, ImageContainer, InfoContaier, Sli
                     </ImageContainer>
                     <InfoContaier>
                         <Title>{item.title}</Title>
-                        <Des>{item.description}</Des>
+                        <Des>{item.Description}</Des>
                         <Button >Show Now</Button>
                     </InfoContaier>
                     </Slide>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik';
-import { Button,Form, Container, Input, Label, Title, Wrapper, Agreement } from '../styledComponent/Register.styled';
+import { Button,Form, Container, Input, Label, Title, Wrapper, Agreement, Error } from '../styledComponent/Register.styled';
 
 function Register(props) {
   const formik = useFormik({
@@ -58,7 +58,7 @@ function Register(props) {
          value={formik.values.name}
          placeholder="name"
        />
-       {formik.errors.name && <p className="error">{formik.errors.name}       </p>}
+       {formik.errors.name && <Error className="error">{formik.errors.name}       </Error>}
        
        <Input
          id="lastName"
@@ -68,7 +68,7 @@ function Register(props) {
          value={formik.values.lastName}
          placeholder="lastName"
        />
-        {formik.errors.lastName && <div className="error">{formik.errors.lastName}       </div>}
+        {formik.errors.lastName && <Error className="error">{formik.errors.lastName}       </Error>}
        
        <Input
          id="email"
@@ -78,7 +78,7 @@ function Register(props) {
          value={formik.values.email}
          placeholder="email"
        />
-        {formik.errors.name && <div className="error">{formik.errors.email}       </div>}
+        {formik.errors.name && <Error className="error">{formik.errors.email}       </Error>}
     
         <Input
          id="userName"
@@ -89,7 +89,7 @@ function Register(props) {
          placeholder="user name"
        />
        
-        {formik.errors.userName && <div className="error">{formik.errors.userName}       </div>}
+        {formik.errors.userName && <Error className="error">{formik.errors.userName}       </Error>}
       
         <Input
          id="password"
@@ -99,7 +99,7 @@ function Register(props) {
          value={formik.values.password}
          placeholder = "password"
        />
-        {formik.errors.password && <div className="error">{formik.errors.password}       </div>}
+        {formik.errors.password && <Error className="error">{formik.errors.password}       </Error>}
         
         <Input
          id="confirmPassword"
@@ -109,7 +109,7 @@ function Register(props) {
          value={formik.values.confirmPassword}
          placeholder = "confirm password"
        />
-        {formik.errors.userName && <div className="error">{formik.errors.confirmPassword}       </div>}
+        {formik.errors.confirmPassword && <Error className="error">{formik.errors.confirmPassword}       </Error>}
 
 <Agreement>by creating an account, I consent to the processing of my personal data in accordance
   with the <b> Privarcy Policy</b> </Agreement>

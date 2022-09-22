@@ -127,7 +127,9 @@ font-weight: 500;
  function Product(props) {
     const [size,setSize] = useState('XS')
     const [color,setColor] = useState('white')
-    const count = useSelector(state=>state.cart.count)
+   const [quantity,setQuantity] = useState(1)
+   const state =  useSelector(state => state);
+   console.log(state,"state")
     
     // console.log(props,"test");
     let location = useLocation()
@@ -135,18 +137,20 @@ font-weight: 500;
     const dispatch = useDispatch()
 AppTitle('products/Moda.Me');
    
-
-
-    const handleAddAmount = ()=>{
-        dispatch(addProduct())
+const handleAmount = (type)=>{
+    if(type === "decrease"){
+        setQuantity(prev => prev <= 1? 1 : prev - 1)
+    } else{
+        setQuantity(prev => prev + 1)
     }
-    const handleDecreaseAmount = ()=>{
-        dispatch(decreaseProduct())
-    }
+
+}
+
+   
 
         const handleClick = (test)=>{
             console.log(color);
-            let product = {...test, size,color}
+            let product = {...test, size,color, quantity}
             console.log(product);
             dispatch(addCard(product))
             dispatch(addBasket())
@@ -192,9 +196,9 @@ AppTitle('products/Moda.Me');
                     </FilterContainer>
                     <AddContainer>
                         <AmountContainer>
-                            <RemoveOutlined onClick={handleDecreaseAmount}/>
-                            <Amount>{count}</Amount>
-                            <AddOutlined onClick={handleAddAmount}/>
+                            <RemoveOutlined onClick={()=>handleAmount('decrease')}/>
+                            <Amount>{quantity}</Amount>
+                            <AddOutlined onClick={()=>handleAmount('increase')}/>
                         </AmountContainer>
                         <Button onClick={()=>handleClick(location.state)}>ADD TO CART</Button>
                     </AddContainer>

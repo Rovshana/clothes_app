@@ -6,7 +6,6 @@ const initialState = {
     products: [],
     quantity: 0,
     total: 0,
-    count: 1,
     card: []
   }
 
@@ -27,17 +26,11 @@ export const CardSlice = createSlice({
         addBasket: (state, action)=>{
           state.quantity += 1;
         },
-        addProduct: (state, action)=>{
-          state.count += 1;
-
-        },
-        decreaseProduct: (state, action)=>{
-          state.count = state.count <= 0 ? 0 : state.count - 1;
-        }
+        
        
 
     },
   })
 
-  export const { addProducts, addBasket, addProduct, decreaseProduct, addCard } = CardSlice.actions;
+  export const { addProducts, addBasket, addCard } = CardSlice.actions;
   export default CardSlice.reducer

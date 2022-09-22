@@ -38,7 +38,7 @@ transform: translateX(${props => props.slideIndex  * -100}vw)
 export const Slide = styled.div`
 display: flex;
 align-items: center;
-
+width: 100vw;
 height: 100vh;
 
 `

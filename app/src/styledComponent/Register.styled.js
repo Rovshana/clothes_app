@@ -56,3 +56,9 @@ cursor: pointer;
 color: white;
 
 `
+export const Error = styled.div`
+width: 250px;
+display: block;
+
+
+`
