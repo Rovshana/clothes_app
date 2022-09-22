@@ -5,7 +5,7 @@ import Product from './Product'
 
 
  function Products({catagory, filters, sort}) {
-    console.log(catagory, filters, sort)
+    
     const [product, setProduct] = useState(null)
    
 

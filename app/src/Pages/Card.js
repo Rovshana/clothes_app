@@ -139,7 +139,7 @@ const Div = styled.div`
 `;
 function Card(props) {
   const selector = useSelector((state) => state.cart.card);
-  const [count, setCount] = useState('')
+ 
   const navigate = useNavigate();
   let total = 0;
   selector.forEach(item=>{
@@ -196,9 +196,7 @@ function Card(props) {
                     <ProductSize>
                       <b>Size:</b> {product.size}
                     </ProductSize>
-                    {/* <ProductColor>
-                      <b>Color:</b> {product.color}
-                    </ProductColor> */}
+                  
                   </Details>
                 </ProductDetail>
 

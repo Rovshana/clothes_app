@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-
-import Register from "../Pages/Register";
-import {mobile, tablet} from '../responsive'
 import { useNavigate } from "react-router-dom";
 
 import { changeLanguage } from "i18next";

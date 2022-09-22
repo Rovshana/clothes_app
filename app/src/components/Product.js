@@ -5,7 +5,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import { useNavigate } from 'react-router-dom';
 import { Circle, Container, Icon, Image, Info } from '../styledComponent/product.styled'
 function Product({item}) {
-    console.log("item",item);
+    
    const navigate =  useNavigate()  
 
     return (

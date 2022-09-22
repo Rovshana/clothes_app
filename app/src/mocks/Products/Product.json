@@ -26,21 +26,21 @@
         "id": 41394834,
         "photo": "https://cdn.shopify.com/s/files/1/0740/5151/products/Women_Beige_Blazer_Suit_Skirt_Set_19_800x.jpg?v=1651831158"
     },
-    {"color": ["blue", "green", "black", "red", "orange"],
-        "price": 67,
-        "brand": "Flo cozy-boot",
+    {"color": ["blue", "light-blue", "teal", "grey", "orange"],
+        "price": 88,
+        "brand": "Mango ",
         "id": 5082938,
-        "photo": "https://specials-images.forbesimg.com/imageserve/61c0ab9c33a68fb73416cb00/Best-Snow-Boots/960x0.jpg?cropX1=0&cropX2=768&cropY1=133&cropY2=806"
+        "photo": "https://www.vineyardvines.com/dw/image/v2/AAHW_PRD/on/demandware.static/-/Sites-vineyardvines-master/default/dw0e5456f7/images/2022/2C001273_8484_OF_052_A.jpg?sw=344&sh=529&sm=cut&strip=false"
     },
     {
-        "color": ["blue", "green", "black", "red", "orange"],
+        "color": ["light blue", "light-green", "black", "orange"],
         "price": 50,
         "brand": "Lc-waiki skirt",
         "id": 664556,
         "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUNs5i1se2Ik3_g4TUg1skQOnjQkCnIZp8dBN_Bxa4b3wVTrSzzORE-3n6hpWAcerbtVs&usqp=CAU"
     },
     {
-        "color": ["blue", "green", "black", "red", "orange"],
+        "color": ["blue", "black", "red" ],
         "price": 98,
         "brand": "Channel Elegant Dress",
         "id": 773830,
@@ -51,7 +51,7 @@
         "price": 77,
         "brand": "Koton Dress",
         "id": 839393,
-        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN9mvQmO6E5hQxw4oK_96CtbZb6rWyg3tWlFVefaN_HOX4WVSA2MMCVqZS5kIqIlMxOd8&usqp=CAU"
+        "photo": "https://ae01.alicdn.com/kf/HTB1ETScIVXXXXaLaVXXq6xXFXXX2/red-dress-women-clothes-vetements-revival-50-s-60-s-cocktail-kleidung-vestido-ropa-jurken-hippie.jpg"
     },
     {
         "color": ["blue", "green", "pink", "red", "orange"],
