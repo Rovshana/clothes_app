@@ -3,10 +3,11 @@ import {mobile, tablet} from '../responsive';
 export const Container = styled.div`
 height: 100vh;
 width: 100%;
-overflow: hidden;
+display: flex;
 ${mobile({display: "none"})}
 ${tablet({display: "none"})}
 position: relative;
+overflow: hidden;
 `
 export const Arrow = styled.div`
 width: 50px;
@@ -33,11 +34,13 @@ height: 100%;
 width: 100%;
 display: flex;
 transition: all 1.1s ease;
+
 transform: translateX(${props => props.slideIndex  * -100}vw)
 `
 export const Slide = styled.div`
 display: flex;
 align-items: center;
+
 width: 100vw;
 height: 100vh;
 

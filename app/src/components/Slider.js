@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
-import shopping from  '../Images/shopping.png'
 import { clothesApi } from '../api/Slider';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Arrow, Button, Container, Des, Image, ImageContainer, InfoContaier, Slide, Title, Wrapper } from '../styledComponent/Slider.styled'
+import { useNavigate } from 'react-router-dom';
 
  function Slider(props) {
-
-
+const navigate = useNavigate()
     const [data, setData] = useState(null)
     useEffect(() => {
     getClothes()
@@ -24,9 +23,9 @@ import { Arrow, Button, Container, Des, Image, ImageContainer, InfoContaier, Sli
    const [slideIndex, setSlideIndex] = useState(0)
    const handleClick = (direction)=>{
     if(direction === "left"){
-        setSlideIndex(slideIndex > 0 ? slideIndex -1 : 3)
+        setSlideIndex(slideIndex > 0 ? slideIndex -1 : 4)
     } else{
-        setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0)
+        setSlideIndex(slideIndex < 4 ? slideIndex + 1 : 0)
     }
 
    }
@@ -37,19 +36,9 @@ import { Arrow, Button, Container, Des, Image, ImageContainer, InfoContaier, Sli
                 <ArrowLeftOutlinedIcon />
 
             </Arrow>
-            <Wrapper slideIndex={slideIndex}>
-            {/* <Slide>
-                    <ImageContainer>
-                        <Image src={shopping} />
-                    </ImageContainer>
-                    <InfoContaier>
-                        <Title>SUMMER SALE</Title>
-                        <Des>DON'T MISS THE SUMMER SALE!</Des>
-                        <Button>Shop Now</Button>
-                    </InfoContaier>
-                    </Slide> */}
-                    {
+            {
                         data?.map((item, index)=>(
+                            <Wrapper slideIndex={slideIndex}>
                             <Slide>
                     <ImageContainer>
                         <Image src={item.photo} />
@@ -57,15 +46,14 @@ import { Arrow, Button, Container, Des, Image, ImageContainer, InfoContaier, Sli
                     <InfoContaier>
                         <Title>{item.title}</Title>
                         <Des>{item.Description}</Des>
-                        <Button >Show Now</Button>
+                        <Button onClick={()=>navigate('/productlist')}>Shop Now</Button>
                     </InfoContaier>
                     </Slide>
-
+                    </Wrapper>
                         ))
 
                     }
-              
-            </Wrapper>
+           
             <Arrow direction='right' onClick={()=>handleClick("right")}>
                 <ArrowRightOutlinedIcon />
 

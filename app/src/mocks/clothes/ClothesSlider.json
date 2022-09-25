@@ -9,13 +9,13 @@
 
 {
         "id": 1,
-        "photo": "https://ae01.alicdn.com/kf/S34353cd7cf27420f9c3178d44fc7cf7dm/Blue-Lace-Patchwork-Summer-Dress-Women-Elegant-Vintage-Party-Dress-Casual-Office-Ladies-Work-Dress.jpg_Q90.jpg_.webp",
+        "photo": "https://m.media-amazon.com/images/I/61a-UW55bJL._AC_UL1024_.jpg",
         "title": "Party Dresses",
         "Description": "DON'T MISS THE SUMMER SALE!"
     },
     {
         "id": 2,
-        "photo": "https://ae01.alicdn.com/kf/Ha36f4056f5f849f6a1c87775ae59f706F/Autumn-Winter-Dress-2020-Long-Batwing-Sleeve-Warm-Sexy-V-neck-Dress-Open-Back-Knee-lenght.jpg_Q90.jpg_.webp",
+        "photo": "https://pa.namshicdn.com/product/23/LRZ28801DC/2-zoom-desktop.jpg",
         "title": "AUTUMN COLLECTION",
         "Description": "DON'T MISS THE Autumn SALE!"
     },
@@ -25,6 +25,7 @@
         "title": " CASUAl WINTER COLLECTION",
         "Description": "DON'T MISS THE Winter SALE!"
     },
+    
     {
         "id": 4,
         "photo": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1635434257-bestwintercoat-michaelkors-1635434238.png?crop=0.9921996879875195xw:1xh;center,top&resize=480:*",
