@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik';
-import { Button,Form, Container, Input, Label, Title, Wrapper, Agreement, Error } from '../styledComponent/Register.styled';
+import { Button,Form, Container, Input, Label, Title, Wrapper, Agreement, Error, Div } from '../styledComponent/Register.styled';
 
 function Register(props) {
   const formik = useFormik({
@@ -21,20 +21,20 @@ function Register(props) {
     validate:values=>{
       let errors = {};
       if(!values.name){
-       errors.name = 'Required!'
+       errors.name = '  Please enter your name!'
       } 
       if(!values.lastName){
-       errors.lastName = 'Required!'
+       errors.lastName = 'Please enter your last name!'
       } 
      if(!values.email){
-       errors.email= 'Required!'
+       errors.email= 'Email is required!'
       }else if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(values.email)){
      errors.email = 'Invalid email format!'
      }
      if(!values.userName){
-      errors.userName = 'Required!'
+      errors.userName = 'Pls enter your userName!'
      } if(!values.password){
-      errors.password = "required"
+      errors.password = "Password is required"
      }
       if(!values.confirmPassword){
       errors.confirmPassword = "required"
@@ -50,6 +50,7 @@ function Register(props) {
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form onSubmit={formik.handleSubmit}>
+          <Div>
        <Input
          id="name"
          name="name"
@@ -59,7 +60,8 @@ function Register(props) {
          placeholder="name"
        />
        {formik.errors.name && <Error className="error">{formik.errors.name}       </Error>}
-       
+       </Div>
+       <Div>
        <Input
          id="lastName"
          name="lastName"
@@ -69,7 +71,8 @@ function Register(props) {
          placeholder="lastName"
        />
         {formik.errors.lastName && <Error className="error">{formik.errors.lastName}       </Error>}
-       
+        </Div>
+        <Div>
        <Input
          id="email"
          name="email"
@@ -79,7 +82,8 @@ function Register(props) {
          placeholder="email"
        />
         {formik.errors.name && <Error className="error">{formik.errors.email}       </Error>}
-    
+        </Div>
+        <Div>
         <Input
          id="userName"
          name="userName"
@@ -90,7 +94,8 @@ function Register(props) {
        />
        
         {formik.errors.userName && <Error className="error">{formik.errors.userName}       </Error>}
-      
+        </Div>
+        <Div>
         <Input
          id="password"
          name="password"
@@ -100,7 +105,8 @@ function Register(props) {
          placeholder = "password"
        />
         {formik.errors.password && <Error className="error">{formik.errors.password}       </Error>}
-        
+        </Div>
+        <Div>
         <Input
          id="confirmPassword"
          name="confirmPassword"
@@ -110,7 +116,7 @@ function Register(props) {
          placeholder = "confirm password"
        />
         {formik.errors.confirmPassword && <Error className="error">{formik.errors.confirmPassword}       </Error>}
-
+        </Div>
 <Agreement>by creating an account, I consent to the processing of my personal data in accordance
   with the <b> Privarcy Policy</b> </Agreement>
         <Button type="submit">Create</Button>

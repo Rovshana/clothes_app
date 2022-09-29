@@ -22,6 +22,10 @@ font-weight: 300;
  display: flex;
  flex-wrap: wrap;
 `
+export const Div = styled.div`
+display: flex;
+flex-direction: column
+`
 export const Wrapper = styled.div`
 width: 40%;
 background-color: white;
@@ -59,6 +63,7 @@ color: white;
 export const Error = styled.div`
 width: 250px;
 display: block;
+margin-left: 5px;
 
 
 `

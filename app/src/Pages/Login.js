@@ -1,72 +1,59 @@
 import React from 'react'
-import styled from 'styled-components'
-import {mobile} from '../responsive'
+import { Button, Container, Form, Input, Title, Wrapper, Link, Box, Error } from '../styledComponent/Login.styled'
 import { AppTitle } from '../tools/generalFunc'
-const Container = styled.div`
-width: 100vw;
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-background: linear-gradient(rgba(255, 255, 255,0.5),rgba(255, 255, 255,0.5) ), url("https://shop-present.com/wp-content/uploads/2022/01/Shopping-7.jpg") ;
-background-size: cover;
-`
-const Wrapper = styled.div`
-padding: 20px;
-width: 25%;
-background-color: white;
-${mobile({width: "75%"})}
-
-`
-const Title = styled.h1`
-font-size: 24px;
-font-weight: 400;
-
-
-`
-
-const Form = styled.form`
-display: flex;
-flex-direction: column;
-`
-const Input = styled.input`
-flex: 1;
-min-width: 40%;
-padding: 10px;
-margin:  10px 0px ;
-`
-
-const Button = styled.button`
-width: 40%;
-border: none;
-color: white;
-cursor: pointer;
-background-color: teal;
-padding: 10px;
-margin-bottom: 10px;
-`
-const Link = styled.a`
-margin: 5px 0;
-display: flex;
-font-size: 12px;
-text-decoration: underline;
-cursor: pointer;
-`
+import { useFormik } from 'formik';
  function Login(props) {
+    const formik = useFormik({
+        initialValues: {
+          userName: '',
+          password: '',
+         
+        },
+        onSubmit: values => {
+          alert(JSON.stringify(values, null, 2));
+        },
+validate: values =>{
+    let errors = {}
+    if(!values.userName){
+        errors.userName = "required!"
+    }
+ if(!values.password){
+    errors.password = "required!"
+ }
+ return errors
+}
+
+
+      });
     
 AppTitle('Login/Moda.Me')
     return (
         <Container>
             <Wrapper>
                 <Title>SIGN IN</Title>
-                <Form>
-                    
-                    <Input placeholder=" username" />
-                    <Input placeholder="password" />
-                    
+                <Form onSubmit={formik.handleSubmit}>
+                    <Box>
+                    <Input placeholder=" username"
+                    id="userName"
+                    name="userName"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.userName} />
+                     {formik.errors.userName && <Error className="error">{formik.errors.userName}       </Error>}
+                    </Box>
+                    <Box>
+                    <Input placeholder="password"
+                    id="password"
+                    name="password"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.password} />
+
+{formik.errors.password && <Error className="error">{formik.errors.password}       </Error>}
+                    </Box>
                 </Form>
                 
-            <Button>LOGIN</Button>
+            <Button type="submit">LOGIN</Button>
             <Link>DON'T YOU REMMEBER THE PASSWORD?</Link>
             <Link>CREATE A NEW ACCOUNT</Link>
             </Wrapper>
